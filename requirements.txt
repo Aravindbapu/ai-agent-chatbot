@@ -84,11 +84,12 @@ tzdata==2024.2
 urllib3==2.3.0
 uvicorn==0.34.0
 yarl==1.18.3
-deepseek-ai
+deepseek-ai>=0.1.0
 streamlit>=1.30.0
 langchain>=0.1.0
 langchain-groq>=0.1.0
 langchain-community>=0.1.0
 langgraph>=0.2.0
 python-dotenv>=1.0.0
+
 
