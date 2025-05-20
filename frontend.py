@@ -14,7 +14,7 @@ GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 TAVILY_API_KEY = os.environ.get("TAVILY_API_KEY")
 
 st.set_page_config(page_title="AI Chatbot Agents", layout="centered")
-st.title("AI Chatbot Agents")
+st.title("AI Chatbot Agent")
 st.write("Create and Interact with the AI Agents!")
 
 system_prompt = st.text_area("Define your AI Agent: ", height=70, placeholder="Type your system prompt here...")
