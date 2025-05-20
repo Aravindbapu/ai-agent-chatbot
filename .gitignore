@@ -28,7 +28,7 @@ ENV/
 .venv
 env.bak/
 venv.bak/
-Pipfile.lock
+
 
 # API Keys and Secrets
 .env
