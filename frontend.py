@@ -14,14 +14,14 @@ st.write("Create and Interact with the AI Agents!")
 system_prompt = st.text_area("Define your AI Agent: ", height=70, placeholder="Type your system prompt here...")
 
 MODEL_NAMES_GROQ = ["llama-3.3-70b-versatile", "mixtral-8x7b-32768"]
-MODEL_NAMES_OPENAI = ["gpt-4o-mini"]
+MODEL_NAMES_DEEPSEEK = ["deepseek-coder", "deepseek-chat"]  # Deepseek models instead of OpenAI
 
-provider = st.radio("Select Provider:", ("Groq", "OpenAI"))
+provider = st.radio("Select Provider:", ("Groq", "Deepseek"))  # Changed OpenAI to Deepseek
 
 if provider == "Groq":
     selected_model = st.selectbox("Select Groq Model:", MODEL_NAMES_GROQ)
-elif provider == "OpenAI":
-    selected_model = st.selectbox("Select OpenAI Model:", MODEL_NAMES_OPENAI)
+elif provider == "Deepseek":  # Changed from OpenAI to Deepseek
+    selected_model = st.selectbox("Select Deepseek Model:", MODEL_NAMES_DEEPSEEK)
 
 allow_web_search = st.checkbox("Allow Web Search")
 
@@ -37,7 +37,7 @@ if st.button("Ask Agent!"):
                     query=[user_query],
                     allow_search=allow_web_search,
                     system_prompt=system_prompt,
-                    provider=provider
+                    provider=provider  # This will now pass "Deepseek" instead of "OpenAI"
                 )
                 st.subheader("Agent Response")
                 st.markdown(f"**Final Response:** {response}")
@@ -45,5 +45,6 @@ if st.button("Ask Agent!"):
                 st.error(f"Error: {str(e)}")
     else:
         st.warning("Please enter a query first.")
+
 
 
