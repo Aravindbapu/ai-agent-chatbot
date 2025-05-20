@@ -4,6 +4,11 @@
 
 import os
 import streamlit as st
+
+# IMPORTANT: set_page_config must be the first Streamlit command
+st.set_page_config(page_title="AI Chatbot Agents", layout="centered")
+
+# Import other libraries after st.set_page_config
 from langchain_groq import ChatGroq
 # Import Deepseek directly in frontend.py
 try:
@@ -22,7 +27,6 @@ GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 TAVILY_API_KEY = os.environ.get("TAVILY_API_KEY")
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY")
 
-st.set_page_config(page_title="AI Chatbot Agents", layout="centered")
 st.title("AI Chatbot Agents")
 st.write("Create and Interact with the AI Agents!")
 
@@ -86,5 +90,6 @@ if st.button("Ask Agent!"):
                 st.error("If using Deepseek, make sure the Deepseek API package is installed and API key is set.")
     else:
         st.warning("Please enter a query first.")
+
 
 
